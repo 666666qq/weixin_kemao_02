@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 //是满足他风格的一种控制器
 @RestController
 
@@ -18,6 +19,8 @@ public class MessageReceiverController {
 	@RequestParam("echostr") String echostr//
 	
 		){
+		
+	
 
 		return echostr;
 	}

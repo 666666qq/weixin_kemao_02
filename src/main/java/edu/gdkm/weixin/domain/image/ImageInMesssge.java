@@ -1,0 +1,40 @@
+package edu.gdkm.weixin.domain.image;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import edu.gdkm.weixin.domain.InMassage;
+
+@XmlRootElement(name="xml")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ImageInMesssge extends InMassage{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@XmlElement(name="PicUrl")
+	private String imageUrl ;
+	
+	@XmlElement(name="MediaId")
+	private String mediaId ;
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getMediaId() {
+		return mediaId;
+	}
+
+	public void setMediaId(String mediaId) {
+		this.mediaId = mediaId;
+	}
+}
