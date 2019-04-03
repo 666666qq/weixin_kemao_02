@@ -35,6 +35,8 @@ public class MessageReceiverController {
 	@PostMapping
 	public String onMessage(@RequestBody String xml) {
 		//收到消息
+		//装换消息
+		//把消息丢入消息队列
 		LOG.trace("收到的消息原文:\n{}\n",xml);
 		return "success";
 		
