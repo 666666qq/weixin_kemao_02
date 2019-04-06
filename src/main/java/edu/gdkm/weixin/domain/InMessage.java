@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class  InMassage implements Serializable{
+public abstract class  InMessage implements Serializable{
 	
 	/**
 	 * 
@@ -71,5 +71,7 @@ public abstract class  InMassage implements Serializable{
 	public void setMagId(Long magId) {
 		this.magId = magId;
 	}
+	
+	abstract public  String toString();
 	
 }

@@ -5,11 +5,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import edu.gdkm.weixin.domain.InMassage;
+import edu.gdkm.weixin.domain.InMessage;
 
 @XmlRootElement(name="xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ImageInMesssge extends InMassage{
+public class ImageInMessage extends InMessage{
 
 	/**
 	 * 
@@ -36,5 +36,12 @@ public class ImageInMesssge extends InMassage{
 
 	public void setMediaId(String mediaId) {
 		this.mediaId = mediaId;
+	}
+
+	@Override
+	public String toString() {
+		return "ImageInMessage [imageUrl=" + imageUrl + ", mediaId=" + mediaId + ", getToUserName()=" + getToUserName()
+				+ ", getFormUserName()=" + getFormUserName() + ", getCreateTime()=" + getCreateTime()
+				+ ", getMsgType()=" + getMsgType() + ", getMagId()=" + getMagId() + "]";
 	}
 }

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.gdkm.weixin.domain.InMessage;
+import edu.gdkm.weixin.weixin.service.MessageConvertHelper;
+
 
 //是满足他风格的一种控制器
 @RestController
@@ -33,14 +36,30 @@ public class MessageReceiverController {
 		return echostr;
 	}
 	@PostMapping
-	public String onMessage(@RequestBody String xml) {
+	public String onMessage(
+			@RequestParam("signature") String signature,//
+			@RequestParam("timestamp") String timestamp,//
+			@RequestParam("nonce") String nonce,//
+			@RequestBody String xml) {
 		//收到消息
 		//装换消息
 		//把消息丢入消息队列
 		LOG.trace("收到的消息原文:\n{}\n",xml);
+		//
+		 
+		InMessage inMessage = MessageConvertHelper.convert(xml);
+		
+		LOG.debug("转换后的消息对象\n{}\n",inMessage);
+		
+		
 		return "success";
 		
 		
+		
+		
+		
 	}
+
+	
 }
 
