@@ -12,6 +12,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import edu.gdkm.weixin.domain.InMessage;
+import edu.gdkm.weixin.service.JsonRedisSerializer;
 
 @SpringBootApplication 
 public class WeixinApplication {
@@ -25,17 +26,15 @@ public class WeixinApplication {
 	
 	
 	@Bean
-	public RedisTemplate<String, ?extends InMessage > inMessageTemplate(@Autowired RedisConnectionFactory connectionFactory){
-		
-	
+	public RedisTemplate<String, ? extends InMessage> inMessageTemplate(//
+			@Autowired RedisConnectionFactory connectionFactory) {
+
 		RedisTemplate<String, ? extends InMessage> template = new RedisTemplate<>();
 		template.setConnectionFactory(connectionFactory);
-		//使程序完成序列化和反序列化
-		template.setValueSerializer(new Jackson2JsonRedisSerializer<>(InMessage.class));
-		
+		// 使用序列化程序完成对象的序列化和反序列化，可以自定义
+		template.setValueSerializer(new JsonRedisSerializer<InMessage>());
+
 		return template;
-		
-		
 	}
 
 	public static void main(String[] args) {
