@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @XmlRootElement(name="xml")
 @XmlAccessorType(XmlAccessType.FIELD)
 public abstract class  InMessage implements Serializable{
@@ -17,20 +19,20 @@ public abstract class  InMessage implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//Xml开头都是JAXB
-	@XmlElement(name="ToUserName")
+	@JsonProperty("ToUserName")
 	private String toUserName;
-	
-	@XmlElement(name="FormUserName")
-	private String formUserName;
-	
-	@XmlElement(name="CreateTime")
+
+	@JsonProperty("FromUserName")
+	private String fromUserName;
+
+	@JsonProperty("CreateTime")
 	private long createTime;
-	
-	@XmlElement(name="MsgType")
+
+	@JsonProperty("MsgType")
 	private String msgType;
-	
-	@XmlElement(name="MagId")
-	private Long magId;
+
+	@JsonProperty("MsgId")
+	private Long msgId;
 
 	public String getToUserName() {
 		return toUserName;
@@ -40,12 +42,12 @@ public abstract class  InMessage implements Serializable{
 		this.toUserName = toUserName;
 	}
 
-	public String getFormUserName() {
-		return formUserName;
+	public String getFromUserName() {
+		return fromUserName;
 	}
 
-	public void setFormUserName(String formUserName) {
-		this.formUserName = formUserName;
+	public void setFromUserName(String fromUserName) {
+		this.fromUserName = fromUserName;
 	}
 
 	public long getCreateTime() {
@@ -64,14 +66,13 @@ public abstract class  InMessage implements Serializable{
 		this.msgType = msgType;
 	}
 
-	public Long getMagId() {
-		return magId;
+	public Long getMsgId() {
+		return msgId;
 	}
 
-	public void setMagId(Long magId) {
-		this.magId = magId;
+	public void setMsgId(Long msgId) {
+		this.msgId = msgId;
 	}
-	
-	abstract public  String toString();
-	
+
+	abstract public String toString();
 }

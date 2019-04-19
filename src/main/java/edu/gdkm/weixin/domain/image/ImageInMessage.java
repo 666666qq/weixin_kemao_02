@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import edu.gdkm.weixin.domain.InMessage;
 
 @XmlRootElement(name="xml")
@@ -16,11 +18,11 @@ public class ImageInMessage extends InMessage{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@XmlElement(name="PicUrl")
-	private String imageUrl ;
-	
-	@XmlElement(name="MediaId")
-	private String mediaId ;
+	@JsonProperty("PicUrl")
+	private String imageUrl;
+
+	@JsonProperty("MediaId")
+	private String mediaId;
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -38,10 +40,12 @@ public class ImageInMessage extends InMessage{
 		this.mediaId = mediaId;
 	}
 
+
 	@Override
 	public String toString() {
 		return "ImageInMessage [imageUrl=" + imageUrl + ", mediaId=" + mediaId + ", getToUserName()=" + getToUserName()
-				+ ", getFormUserName()=" + getFormUserName() + ", getCreateTime()=" + getCreateTime()
-				+ ", getMsgType()=" + getMsgType() + ", getMagId()=" + getMagId() + "]";
+				+ ", getFromUserName()=" + getFromUserName() + ", getCreateTime()=" + getCreateTime()
+				+ ", getMsgType()=" + getMsgType() + ", getMsgId()=" + getMsgId() + "]";
 	}
 }
+

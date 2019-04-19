@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import edu.gdkm.weixin.domain.InMessage;
 
 @XmlRootElement(name="xml")
@@ -13,8 +15,9 @@ public class TextInMessage extends InMessage{
 
 
 	private static final long serialVersionUID = 1L;
-	
-	@XmlElement(name="Content")
+
+	@XmlElement(name = "Content")
+	@JsonProperty("Content")
 	private String content;
 
 	public String getContent() {
@@ -27,10 +30,12 @@ public class TextInMessage extends InMessage{
 
 	@Override
 	public String toString() {
-		return "TextInMessage [content=" + content + ", getToUserName()=" + getToUserName() + ", getFormUserName()="
-				+ getFormUserName() + ", getCreateTime()=" + getCreateTime() + ", getMsgType()=" + getMsgType()
-				+ ", getMagId()=" + getMagId() + "]";
+		return "TextInMessage [content=" + content + ", getToUserName()=" + getToUserName() + ", getFromUserName()="
+				+ getFromUserName() + ", getCreateTime()=" + getCreateTime() + ", getMsgType()=" + getMsgType()
+				+ ", getMsgId()=" + getMsgId() + "]";
 	}
+}
+
 	
 
-}
+
